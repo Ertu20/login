@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merve&Ertu/Login</title>
+    <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"> <!-- Boxicons CSS -->
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="login-form" id="loginForm">
+            <h2>Giriş</h2>
+            <form onsubmit="return validatePassword()">
+                <label for="password">Parola</label>
+                <div class="input-container">
+                    
+                    <input type="password" id="password" placeholder="Parolayı Giriniz..." required>
+                    
+                </div>
+                <button type="submit" class="login-button">Giriş</button>
+
+                <p id="error-message" style="color: red; background-color: black; margin-top: 10px;"></p> <!-- Hata mesajı -->
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validatePassword() {
+            const password = document.getElementById('password').value;
+            const sifre = 'Fm20062022'; // Doğru parola
+            const loginForm = document.getElementById('loginForm');
+            const container = document.getElementById('container');
+
+            if (password === sifre) {
+                // Formu küçültme ve kaybolma animasyonu
+                container.classList.add('shrink-out');  
+                
+                setTimeout(function() {
+                    loginForm.style.display = 'none'; // Formu tamamen gizle
+                }, 1000); // Animasyon süresi (1 saniye sonra)
+                
+                // 3 saniye sonra index.html sayfasına yönlendir
+                setTimeout(function() {
+                    window.location.href = 'https://merve-ertu.netlify.app';
+                }, 1300); // 2 saniye bekleyip sayfa yönlendirme
+
+                return false; // Formun gönderilmesini engeller
+            } else {
+                // Parola yanlışsa hata mesajını göster
+                document.getElementById('error-message').textContent = 'Buraya Girmeye Hakkınız YOK👿';
+                return false; // Formun gönderilmesini engeller
+            }
+        }
+    </script>
+</body>
+</html>

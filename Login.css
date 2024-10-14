@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('Foto/2.jpg') no-repeat center center/cover;
+    background-size: cover;
+    overflow: hidden;
+}
+
+
+.container {
+    background-color: rgba(255, 255, 255, 0.2); /* Şeffaflık oranı artırıldı (0.2) */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    width: 320px;
+    text-align: center;
+    transition: all 1s ease-in-out;
+}
+
+.login-form h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #000000; /* Beyaz renkle daha okunabilir hale getirildi */
+}
+
+.login-form label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #060606; /* Beyaz renkte yapıldı */
+}
+
+.input-container {
+    position: relative; /* Kilit simgesi ve input konumunu ayarlamak için */
+}
+
+.input-container box-icon {
+    position: absolute;
+    right: 10px; /* Sağ taraftan mesafe */
+    top: 50%; /* Dikey ortalama */
+    transform: translateY(-50%); /* Dikey ortalama */
+    color: #666; /* Simgenin rengi */
+}
+
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px 40px 12px 12px; /* Sağ tarafta simge için yer bıraktık */
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.7); /* Arka planı şeffaf */
+    transition: all 0.3s ease;
+}
+
+.login-form input[type="password"]:focus {
+    border-color: #007BFF;
+    background-color: rgba(255, 255, 255, 0.9); /* Daha belirgin hale geliyor */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent; /* Arka plan şeffaf */
+    color: rgb(5, 5, 5);
+    border: 2px solid rgba(0, 123, 255, 0.8); /* Kenar rengi */
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* Işık efektinin dışarı taşmaması için */
+    transition: all 0.3s ease;
+}
+
+.login-button:hover::before {
+    transform: translate(-50%, -50%) scale(1); /* Işık efekti büyüyecek */
+}
+
+.login-button:hover {
+    background-color: rgba(0, 123, 255, 0.3); /* Arka plan rengi değişimi */
+    color: #fff; /* Metin rengi değişimi */
+    transform: translateY(-5px) scale(1.05); /* Yükselme ve büyüme efekti */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Gölge ekleme */
+}
+.login-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(0, 123, 255, 0.4); /* Işık dalgası rengi */
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+}
+
+/* Shrink-out animasyonu */
+.shrink-out {
+    transform: scale(0.2);  /* Küçült */
+    opacity: 0;             /* Opaklık sıfıra iniyor */
+    transition: all 1s ease-in-out;
+}
